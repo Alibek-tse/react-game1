@@ -1,4 +1,7 @@
 import React, {useState} from "react";
+import { Spring } from "react-spring/renderprops";
+
+
 
 export default function Section() {
   const [section, setSection] = useState(Array(9).fill(null));
@@ -44,7 +47,12 @@ export default function Section() {
     isWinner(count % 2 === 0 ? xPoint.props.children : oPoint.props.children);
   };
   return (
-    <div className="tic-tac-toe">
+    <Spring
+    from={{ opacity: 0, transform: "translate(-4rem)" }}
+    to={{ opacity: 1, transform: "translate(-4rem)" }}
+    config={{ duration: 4000 }}
+  >
+    {(props) => <div className="tic-tac-toe" style={props}>
       <div onClick={changeHandler} data="0">
         {section[0]}
       </div>
@@ -72,6 +80,8 @@ export default function Section() {
       <div onClick={changeHandler} data="8">
         {section[8]}
       </div>
-    </div>
+    </div>}
+  </Spring>
+    
   );
 }

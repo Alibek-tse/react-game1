@@ -1,3 +1,7 @@
+
+.App {
+ width: 100%;
+}
 .tic-tac-toe {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
