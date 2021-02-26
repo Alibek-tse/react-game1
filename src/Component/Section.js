@@ -1,5 +1,6 @@
 import React, {useState} from "react";
 import { Spring } from "react-spring/renderprops";
+import Grid from "./Grid"
 
 
 
@@ -36,6 +37,8 @@ export default function Section() {
   const oPoint = <p>O</p>;
 
   const changeHandler = (event) => {
+    console.log(event,'123')
+
     let data = event.target.getAttribute("data");
 
     if (section[data] === null) {
@@ -53,33 +56,7 @@ export default function Section() {
     config={{ duration: 4000 }}
   >
     {(props) => <div className="tic-tac-toe" style={props}>
-      <div onClick={changeHandler} data="0">
-        {section[0]}
-      </div>
-      <div onClick={changeHandler} data="1">
-        {section[1]}
-      </div>
-      <div onClick={changeHandler} data="2">
-        {section[2]}
-      </div>
-      <div onClick={changeHandler} data="3">
-        {section[3]}
-      </div>
-      <div onClick={changeHandler} data="4">
-        {section[4]}
-      </div>
-      <div onClick={changeHandler} data="5">
-        {section[5]}
-      </div>
-      <div onClick={changeHandler} data="6">
-        {section[6]}
-      </div>
-      <div onClick={changeHandler} data="7">
-        {section[7]}
-      </div>
-      <div onClick={changeHandler} data="8">
-        {section[8]}
-      </div>
+      <Grid section={section} changeHandler={changeHandler}></Grid>
     </div>}
   </Spring>
     
