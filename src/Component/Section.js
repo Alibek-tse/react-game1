@@ -1,12 +1,12 @@
-import React, {useState} from "react";
-import { Spring } from "react-spring/renderprops";
-import Grid from "./Grid"
-
-
+import React, { useState, useRef } from "react";
+import { Spring, Transition } from "react-spring/renderprops";
+import Grid from "./Grid";
 
 export default function Section() {
+  const [btnStart, setBtnStart] = useState(false);
   const [section, setSection] = useState(Array(9).fill(null));
   const [count, setCount] = useState(0);
+  const myRef = useRef(null);
 
   const winnerLine = [
     [0, 1, 2],
@@ -37,7 +37,7 @@ export default function Section() {
   const oPoint = <p>O</p>;
 
   const changeHandler = (event) => {
-    console.log(event,'123')
+    // console.log(event, "123");
 
     let data = event.target.getAttribute("data");
 
@@ -50,15 +50,40 @@ export default function Section() {
     isWinner(count % 2 === 0 ? xPoint.props.children : oPoint.props.children);
   };
   return (
-    <Spring
-    from={{ opacity: 0, transform: "translate(-4rem)" }}
-    to={{ opacity: 1, transform: "translate(-4rem)" }}
-    config={{ duration: 4000 }}
-  >
-    {(props) => <div className="tic-tac-toe" style={props}>
-      <Grid section={section} changeHandler={changeHandler}></Grid>
-    </div>}
-  </Spring>
-    
+    <div>
+      <button className="btn-grad" onClick={() => setBtnStart(!btnStart)}>
+        {!btnStart ? "Начать Игру" : "Закончить Игру"}
+      </button>
+      {/* <Spring
+        immediate={!myRef.current}
+        reset={true}
+        from={{ opacity: 0, transform: "translateY(50rem)" }}
+        to={{ opacity: 1, transform: "translateY(0rem)" }}
+        config={{ duration: 2000 }}
+        reverse={!btnStart}
+      >
+        {(props) => (
+          <div className="tic-tac-toe" style={props} ref={myRef}>
+            <Grid section={section} changeHandler={changeHandler}></Grid>
+          </div>
+        )}
+      </Spring> */}
+      <Transition
+        items={btnStart}
+        enter={{ opacity: 1, transform: "translateY(0rem)" }}
+        leave={{ opacity: 0, transform: "translateY(-5rem)"}}
+        from={{ opacity: 0, transform: "translateY(-5rem)" }}
+        config={{ duration: 1000 }}
+      >
+        {(item) =>
+          item &&
+          ((props) => (
+            <div className="tic-tac-toe" style={props}>
+              <Grid section={section} changeHandler={changeHandler}></Grid>
+            </div>
+          ))
+        }
+      </Transition>
+    </div>
   );
 }
