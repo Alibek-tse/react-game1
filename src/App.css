@@ -21,6 +21,7 @@
   border: 2px solid rgb(2, 15, 41);
   text-align: center;
   padding-top: 10%;
+  cursor: pointer;
 }
 
 .xpoint {
@@ -29,6 +30,9 @@
   font-size: 80px;
   text-align: center;
   font-weight: bold;
+  position: relative;
+  animation-name: point ;
+  animation-duration: 350ms;
 }
 .opoint {
     font-family: 'Indie Flower', cursive;
@@ -36,6 +40,25 @@
     font-size: 80px;
     text-align: center;
     font-weight: bold;
+    position: relative;
+    animation-name: point ;
+    animation-duration: 350ms;
+}
+
+
+@keyframes point {
+  0% {
+    top: -40px;
+  } 
+  25% {
+    top: 0;
+  }
+  50% {
+    top: -20px;
+  }
+  100% {
+    top: 0px;
+  }
 }
 
 .btn-grad {

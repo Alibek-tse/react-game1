@@ -27,7 +27,6 @@ export default function Section() {
       if (section[i] !== null) {
         counter++
       }
-      console.log(counter)
       if (
         res[line[0]] === val &&
         res[line[1]] === val &&
@@ -38,14 +37,14 @@ export default function Section() {
           setSection(Array(9).fill(null));
           setCount(0);
           setRes(Array(9).fill(null));
-        }, 2000);
+        }, 1500);
       } if (counter === 8) {
         Swal.fire('Ничья');
         setTimeout(() => {
           setSection(Array(9).fill(null));
           setCount(0);
           setRes(Array(9).fill(null));
-        }, 2000);
+        }, 1500);
       }
     }
   };
