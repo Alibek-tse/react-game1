@@ -1,14 +1,12 @@
 import React, { useState } from "react";
 import { Transition } from "react-spring/renderprops";
 import Grid from "./Grid";
-import Swal from "sweetalert2"; 
-
-
-
+import Swal from "sweetalert2";
 
 export default function Section() {
   const [btnStart, setBtnStart] = useState(false);
   const [section, setSection] = useState(Array(9).fill(null));
+  const [res, setRes] = useState(Array(9).fill(null));
   const [count, setCount] = useState(0);
 
   const winnerLine = [
@@ -23,43 +21,51 @@ export default function Section() {
   ];
 
   const isWinner = (val) => {
-    // console.log(val)
-
+    let counter = 0;
     for (let i = 0; i < 8; i++) {
       let line = winnerLine[i];
+      if (section[i] !== null) {
+        counter++
+      }
+      console.log(counter)
       if (
-        section[line[0]] === val &&
-        section[line[1]] === val &&
-        section[line[2]] === val
+        res[line[0]] === val &&
+        res[line[1]] === val &&
+        res[line[2]] === val
       ) {
-        // alert(val + " win");
-        Swal.fire(val + ' WIN')
-        setTimeout(()=>{
-          setSection(Array(9).fill(null))
+        Swal.fire(val + " WIN");
+        setTimeout(() => {
+          setSection(Array(9).fill(null));
           setCount(0);
-        },5000)
-        // setBtnStart(Array(9).fill(null));
-        // setBtnStart(false);
+          setRes(Array(9).fill(null));
+        }, 2000);
+      } if (counter === 8) {
+        Swal.fire('Ничья');
+        setTimeout(() => {
+          setSection(Array(9).fill(null));
+          setCount(0);
+          setRes(Array(9).fill(null));
+        }, 2000);
       }
     }
   };
-  const xPoint = <span>X</span>
-  const oPoint = <p>O</p>;
+  const xPoint = <p className="xpoint">X</p>;
+  const oPoint = <p className="opoint">O</p>;
 
   const changeHandler = (event) => {
-    // console.log(event, "123");
-
     let data = event.target.getAttribute("data");
-
     if (section[data] === null) {
-       console.log(xPoint);
-      section[data] =
+      section[data] = count % 2 === 0 ? xPoint : oPoint;
+      res[data] =
         count % 2 === 0 ? xPoint.props.children : oPoint.props.children;
+
       setCount((prev) => prev + 1);
       setSection((prev) => [...section]);
+      setRes((prev) => [...res]);
     }
     isWinner(count % 2 === 0 ? xPoint.props.children : oPoint.props.children);
   };
+
   return (
     <div>
       <button className="btn-grad" onClick={() => setBtnStart(!btnStart)}>
