@@ -12,10 +12,16 @@
   box-sizing: border-box;
   width: 150px;
   height: 150px;
-  border: 1px solid black;
+  background-image: linear-gradient(
+    to top,
+    #003973 0%,
+    #71cde9 51%,
+    #003973 100%
+  );
   text-align: center;
-  padding-top: 40%;
+  padding-top: 10%;
 }
+
 
 .btn-grad {
   position: relative;
@@ -24,7 +30,7 @@
   background-image: linear-gradient(
     to right,
     #003973 0%,
-    #e5e5be 51%,
+    #71cde9  51%,
     #003973 100%
   );
 }
@@ -45,4 +51,25 @@
   background-position: right center; /* change the direction of the change here */
   color: #fff;
   text-decoration: none;
+}
+
+.btnMusic {
+  position: relative;
+  top: 50px;
+  left: 150px;
+  width: 100px;
+  height: 100px;
+}
+
+.btnPlay {
+  background: url("./source/playImg.png") no-repeat;
+  background-color: blue;
+  cursor: pointer;
+  border: none;
+}
+
+.btnPause {
+  background: url("./source/pause.jpeg") no-repeat;
+  cursor: pointer;
+  border: none;
 }

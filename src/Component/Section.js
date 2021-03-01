@@ -1,12 +1,15 @@
-import React, { useState, useRef } from "react";
-import { Spring, Transition } from "react-spring/renderprops";
+import React, { useState } from "react";
+import { Transition } from "react-spring/renderprops";
 import Grid from "./Grid";
+import Swal from "sweetalert2"; 
+
+
+
 
 export default function Section() {
   const [btnStart, setBtnStart] = useState(false);
   const [section, setSection] = useState(Array(9).fill(null));
   const [count, setCount] = useState(0);
-  const myRef = useRef(null);
 
   const winnerLine = [
     [0, 1, 2],
@@ -29,11 +32,18 @@ export default function Section() {
         section[line[1]] === val &&
         section[line[2]] === val
       ) {
-        alert(val + "win");
+        // alert(val + " win");
+        Swal.fire(val + ' WIN')
+        setTimeout(()=>{
+          setSection(Array(9).fill(null))
+          setCount(0);
+        },5000)
+        // setBtnStart(Array(9).fill(null));
+        // setBtnStart(false);
       }
     }
   };
-  const xPoint = <p>X</p>;
+  const xPoint = <span>X</span>
   const oPoint = <p>O</p>;
 
   const changeHandler = (event) => {
@@ -42,6 +52,7 @@ export default function Section() {
     let data = event.target.getAttribute("data");
 
     if (section[data] === null) {
+       console.log(xPoint);
       section[data] =
         count % 2 === 0 ? xPoint.props.children : oPoint.props.children;
       setCount((prev) => prev + 1);
@@ -54,24 +65,10 @@ export default function Section() {
       <button className="btn-grad" onClick={() => setBtnStart(!btnStart)}>
         {!btnStart ? "Начать Игру" : "Закончить Игру"}
       </button>
-      {/* <Spring
-        immediate={!myRef.current}
-        reset={true}
-        from={{ opacity: 0, transform: "translateY(50rem)" }}
-        to={{ opacity: 1, transform: "translateY(0rem)" }}
-        config={{ duration: 2000 }}
-        reverse={!btnStart}
-      >
-        {(props) => (
-          <div className="tic-tac-toe" style={props} ref={myRef}>
-            <Grid section={section} changeHandler={changeHandler}></Grid>
-          </div>
-        )}
-      </Spring> */}
       <Transition
         items={btnStart}
         enter={{ opacity: 1, transform: "translateY(0rem)" }}
-        leave={{ opacity: 0, transform: "translateY(-5rem)"}}
+        leave={{ opacity: 0, transform: "translateY(-5rem)" }}
         from={{ opacity: 0, transform: "translateY(-5rem)" }}
         config={{ duration: 1000 }}
       >
