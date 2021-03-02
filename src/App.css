@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap");
 
 .tic-tac-toe {
   display: grid;
@@ -12,13 +12,11 @@
   box-sizing: border-box;
   width: 150px;
   height: 150px;
-  background-image: linear-gradient(
-    to left bottom,
-    #7eb7f0 0%,
-    #1c8fb3 51%,
-    #003973 100%
-  );
-  border: 2px solid rgb(2, 15, 41);
+  background-color: #fee140;
+  background-color: #FF3CAC;
+background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+
+  border: 2px solid rgb(158, 163, 173);
   text-align: center;
   padding-top: 10%;
   cursor: pointer;
@@ -36,7 +34,7 @@
 }
 .opoint {
   font-family: "Indie Flower", cursive;
-  color: rgb(233, 157, 157);
+  color: rgb(8, 6, 6);
   font-size: 80px;
   text-align: center;
   font-weight: bold;
@@ -64,12 +62,7 @@
   position: relative;
   left: 50%;
   transform: translateX(-50%);
-  background-image: linear-gradient(
-    to right,
-    #003973 0%,
-    #71cde9 51%,
-    #003973 100%
-  );
+  background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
 }
 .btn-grad {
   margin: 10px;
@@ -123,15 +116,19 @@
   bottom: 0;
   width: 100%;
   height: 60px;
-  background-color: #FF3CAC;
-  background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
-  
+  background-color: #ff3cac;
+  background-image: linear-gradient(
+    225deg,
+    #ff3cac 0%,
+    #784ba0 50%,
+    #2b86c5 100%
+  );
 }
 
 .img {
   position: absolute;
   left: 60px;
-  bottom: -2px;  
+  bottom: -2px;
   width: 60px;
   height: 60px;
 }
@@ -139,7 +136,7 @@
   text-decoration: none;
   position: relative;
   padding-left: 120px;
-  font-family: 'Hachi Maru Pop', cursive;
+  font-family: "Hachi Maru Pop", cursive;
   font-weight: bold;
   font-size: 40px;
   color: #1c8fb3;
@@ -147,14 +144,14 @@
 .logo {
   position: absolute;
   right: 50px;
-  bottom: 3px;  
+  bottom: 3px;
   width: 60px;
   height: 60px;
 }
 .youtube {
   position: absolute;
   right: 120px;
-  bottom: 6px;  
+  bottom: 6px;
   width: 50px;
   height: 50px;
 }
