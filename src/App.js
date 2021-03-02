@@ -1,13 +1,16 @@
-import React from "react";
+import React, { useState } from "react";
 import Section from "./Component/Section";
 import Player from "./Component/Player";
 import "./App.css";
+import Footer from "./Component/Footer";
 
 function App() {
+ 
   return (
-    <div className='app'>
+    <div className="app">
       <Player></Player>
-      <Section></Section>
+      <Section ></Section>
+      <Footer></Footer>
     </div>
   );
 }

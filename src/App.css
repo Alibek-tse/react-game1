@@ -1,5 +1,5 @@
-@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
-
+@import url("https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&display=swap');
 
 .tic-tac-toe {
   display: grid;
@@ -25,31 +25,30 @@
 }
 
 .xpoint {
-  font-family: 'Indie Flower', cursive;
+  font-family: "Indie Flower", cursive;
   color: #fff;
   font-size: 80px;
   text-align: center;
   font-weight: bold;
   position: relative;
-  animation-name: point ;
+  animation-name: point;
   animation-duration: 350ms;
 }
 .opoint {
-    font-family: 'Indie Flower', cursive;
-    color: rgb(233, 157, 157);
-    font-size: 80px;
-    text-align: center;
-    font-weight: bold;
-    position: relative;
-    animation-name: point ;
-    animation-duration: 350ms;
+  font-family: "Indie Flower", cursive;
+  color: rgb(233, 157, 157);
+  font-size: 80px;
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  animation-name: point;
+  animation-duration: 350ms;
 }
-
 
 @keyframes point {
   0% {
     top: -40px;
-  } 
+  }
   25% {
     top: 0;
   }
@@ -68,7 +67,7 @@
   background-image: linear-gradient(
     to right,
     #003973 0%,
-    #71cde9  51%,
+    #71cde9 51%,
     #003973 100%
   );
 }
@@ -92,11 +91,9 @@
 }
 
 .btnMusic {
-  position: relative;
+  position: absolute;
   top: 50px;
-  left: 150px;
-  width: 500px;
-  height: 500px;
+  left: 50px;
 }
 
 .btnPlay {
@@ -119,4 +116,45 @@
   /* background-color: blue; */
   cursor: pointer;
   border: none;
+}
+.footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 60px;
+  background-color: #FF3CAC;
+  background-image: linear-gradient(225deg, #FF3CAC 0%, #784BA0 50%, #2B86C5 100%);
+  
+}
+
+.img {
+  position: absolute;
+  left: 60px;
+  bottom: -2px;  
+  width: 60px;
+  height: 60px;
+}
+.link {
+  text-decoration: none;
+  position: relative;
+  padding-left: 120px;
+  font-family: 'Hachi Maru Pop', cursive;
+  font-weight: bold;
+  font-size: 40px;
+  color: #1c8fb3;
+}
+.logo {
+  position: absolute;
+  right: 50px;
+  bottom: 3px;  
+  width: 60px;
+  height: 60px;
+}
+.youtube {
+  position: absolute;
+  right: 120px;
+  bottom: 6px;  
+  width: 50px;
+  height: 50px;
 }

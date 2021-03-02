@@ -8,6 +8,7 @@ export default function Section() {
   const [section, setSection] = useState(Array(9).fill(null));
   const [res, setRes] = useState(Array(9).fill(null));
   const [count, setCount] = useState(0);
+  const [count2, setCount2] = useState(0);
 
   const winnerLine = [
     [0, 1, 2],
@@ -21,25 +22,24 @@ export default function Section() {
   ];
 
   const isWinner = (val) => {
-    let counter = 0;
     for (let i = 0; i < 8; i++) {
       let line = winnerLine[i];
-      if (section[i] !== null) {
-        counter++
-      }
+      console.log(count2);
       if (
         res[line[0]] === val &&
         res[line[1]] === val &&
         res[line[2]] === val
       ) {
-        Swal.fire(val + " WIN");
+        Swal.fire(val === "X" ? "Победили КРЕСТИКИ" : "Победили НОЛИКИ");
+        setCount2(0);
         setTimeout(() => {
           setSection(Array(9).fill(null));
           setCount(0);
           setRes(Array(9).fill(null));
         }, 1500);
-      } if (counter === 8) {
-        Swal.fire('Ничья');
+      } else if (count2 === 8) {
+        Swal.fire("Ничья");
+        setCount2(0);
         setTimeout(() => {
           setSection(Array(9).fill(null));
           setCount(0);
@@ -54,13 +54,14 @@ export default function Section() {
   const changeHandler = (event) => {
     let data = event.target.getAttribute("data");
     if (section[data] === null) {
+      setCount2((prev) => prev + 1);
       section[data] = count % 2 === 0 ? xPoint : oPoint;
       res[data] =
         count % 2 === 0 ? xPoint.props.children : oPoint.props.children;
-
       setCount((prev) => prev + 1);
       setSection((prev) => [...section]);
       setRes((prev) => [...res]);
+      // console.log(section)
     }
     isWinner(count % 2 === 0 ? xPoint.props.children : oPoint.props.children);
   };
