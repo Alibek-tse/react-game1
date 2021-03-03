@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState,useEffect } from "react";
 import { Transition } from "react-spring/renderprops";
 import Grid from "./Grid";
 import Swal from "sweetalert2";
@@ -20,6 +20,9 @@ export default function Section(props) {
     [0, 4, 8],
     [2, 4, 6],
   ];
+
+
+
 
   //https://youtu.be/sTxcoJwc1mU
 
@@ -78,17 +81,17 @@ export default function Section(props) {
 
   const changeHandler = (event) => {
     let data = event.target.getAttribute("data");
-    if (section[data] === null) {
-      setCount2((prev) => prev + 1);
-      section[data] = count % 2 === 0 ? xPoint : oPoint;
-      res[data] =
-        count % 2 === 0 ? xPoint.props.children : oPoint.props.children;
-      setCount((prev) => prev + 1);
-      setSection((prev) => [...section]);
-      setRes((prev) => [...res]);
-      // console.log(section)
-    //  localStorage.setItem(data + Date(),JSON.stringify(section[data].props))
-    }
+    if (section[data] === null) {    
+        setCount2((prev) => prev + 1);
+        section[data] = count % 2 === 0 ? xPoint : oPoint;
+        res[data] =
+          count % 2 === 0 ? xPoint.props.children : oPoint.props.children;
+        setCount((prev) => prev + 1);
+        setSection((prev) => [...section]);
+        setRes((prev) => [...res]);
+        // console.log(section)
+       localStorage.setItem(data + Date(),JSON.stringify(section[data].props))
+      }
     isWinner(count % 2 === 0 ? xPoint.props.children : oPoint.props.children);
   };
 
