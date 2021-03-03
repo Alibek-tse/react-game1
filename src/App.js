@@ -15,7 +15,7 @@ function App() {
     <FullScreen handle={handle}>
       <div className="app">
         <ButtonScreen btnScreen={handle.enter}></ButtonScreen>
-        {/* <Player></Player> */}
+        <Player></Player>
         <Section fullscreen={handle.active}></Section>
         <Footer></Footer>
       </div>
