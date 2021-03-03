@@ -1,6 +1,6 @@
 import React from "react";
 import Section from "./Component/Section";
-// import Player from "./Component/Player";
+import Player from "./Component/Player";
 import "./App.css";
 import Footer from "./Component/Footer";
 import ButtonScreen from './Component/ButtonScreen'
