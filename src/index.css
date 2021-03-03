@@ -4,9 +4,11 @@
 }
 body {
   min-width: 500px;
+  /* min-height: 100vh; */
+  /* display:flex; */
+}
+.app {
   background-color: #ffdee9;
   background-image: linear-gradient(0deg, #ffdee9 0%, #b5fffc 100%);
-
   min-height: 100vh;
-  /* display:flex; */
 }

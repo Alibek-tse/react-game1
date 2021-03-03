@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import music from '../source/fonMusic.mp3'
 
+//https://stackoverflow.com/questions/47686345/playing-sound-in-react-js
+
 const useAudio = () => {
   const [audio] = useState(new Audio(music));
   const [playing, setPlaying] = useState(false);
@@ -31,6 +33,7 @@ const Player = ({ url }) => {
 
   return (
       <button type="button" className={playing? "btnMusic btnPlay" : "btnMusic btnPause"} onClick={toggle}></button>
+      
   );
 };
 
